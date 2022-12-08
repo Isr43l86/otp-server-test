@@ -1,5 +1,6 @@
 import React from "react";
 import { userUserContext } from "../context/userContext";
+import PlainTextOTP from "../components/PlainTextOTP.jsx";
 import "../styles/OTPinput.css";
 
 export default function OTPinput() {
@@ -12,7 +13,7 @@ export default function OTPinput() {
         <div className="popup">
             <div className="otpContainer">
                 <p>
-                    Ingrese el valor OTP en la aplicación móvil <b>App Safe</b>
+                    Ingrese el valor OTP en la aplicación móvil <b>App Safe.</b>
                 </p>
                 {currentUser.currentUser.twoFactorAuthentication
                     .deliveryMethod === "qr_code" ? (
@@ -20,9 +21,7 @@ export default function OTPinput() {
                         <p>QR</p>
                     </div>
                 ) : (
-                    <div>
-                        <p>Texto plano</p>
-                    </div>
+                    <PlainTextOTP otpValue={otpValue} />
                 )}
             </div>
         </div>

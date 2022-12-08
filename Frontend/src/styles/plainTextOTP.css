@@ -1,0 +1,13 @@
+.otpValueContainer {
+    margin-top: 25px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    border: 4px solid #1b8de4;
+}
+.otpValueContainer > .otpText {
+    padding-left: 42px;
+    letter-spacing: 25px;
+    text-align: center;
+    font-size: 75px;
+}

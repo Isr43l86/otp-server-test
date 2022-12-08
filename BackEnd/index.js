@@ -3,8 +3,11 @@ import fileUpload from "express-fileupload";
 import postRoutes from "./routes/user.routes.js";
 import appInfoRoutes from "./routes/app.routes.js";
 import otpRoutes from "./routes/otp.routes.js";
+import sockets from "./sockets.js";
 import { connectDB } from "./db.js";
 import { PORT } from "./config.js";
+import { Server as WebSocketServer } from "socket.io";
+import http from "http";
 
 const app = express();
 connectDB();
@@ -32,4 +35,5 @@ app.use(appInfoRoutes);
 app.use(otpRoutes);
 
 app.listen(PORT);
+
 console.log("Server running on port ", PORT);

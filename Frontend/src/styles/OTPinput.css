@@ -16,3 +16,7 @@
     background-color: white;
     border-radius: 10px;
 }
+
+.otpContainer > p {
+    font-size: 20px;
+}
