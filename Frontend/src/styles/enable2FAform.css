@@ -1,0 +1,101 @@
+.enable-2FA-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.enable-2FA-container > .switch-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.enable-2FA-container > .switch-container > .switch-label {
+    height: 15%;
+    transform: scale(1.7, 1.7);
+}
+.enable-2FA-container > .switch-container > p {
+    font-size: 20px;
+}
+.enable-2FA-container > .switch-container > .metodos-entrega {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.enable-2FA-container > .switch-container > .metodos-entrega > div {
+    height: 100%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.enable-2FA-container > .switch-container > .metodos-entrega > div > button {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    border: 2px solid #b9bec6;
+    border-radius: 10px;
+    background-color: white;
+}
+.enable-2FA-container
+    > .switch-container
+    > .metodos-entrega
+    > div
+    > button:hover {
+    transform: scale(1.05, 1.05);
+    transition: all 0.5s;
+}
+.enable-2FA-container
+    > .switch-container
+    > .metodos-entrega
+    > div
+    > button:focus,
+.enable-2FA-container
+    > .switch-container
+    > .metodos-entrega
+    > div
+    > button:active {
+    border: 4px solid #1b8de4;
+}
+.enable-2FA-container > .switch-container > .btn-save {
+    margin-top: 50px;
+    width: 70%;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    font-weight: 550;
+    border-radius: 10px;
+    background-color: #7c9afb;
+    border: 3px solid #5179ff;
+    cursor: pointer;
+    box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+    -webkit-box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+    -moz-box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+}
+.enable-2FA-container > .switch-container > .btn-save:hover {
+    background-color: #5179ff;
+}
+.enable-2FA-container > .switch-container > .btn-save:active {
+    background-color: #7c9afb;
+}
+
+.enable-2FA-container > .btn-logout {
+    position: absolute;
+    margin-top: -85px;
+    margin-right: -1250px;
+    background-color: #3593ff;
+}
+.enable-2FA-container > .btn-logout:hover {
+    background-color: #2376d5;
+}

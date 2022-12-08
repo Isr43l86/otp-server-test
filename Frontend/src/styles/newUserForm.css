@@ -1,0 +1,90 @@
+.createUserForm > .app-name {
+    font-size: 37px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 35px;
+}
+.createUserForm > .username-label {
+    padding-left: 15%;
+    font-size: 20px;
+    font-weight: 475;
+}
+.createUserForm > .username {
+    margin-top: 5px;
+    margin-left: 15%;
+    width: 70%;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.createUserForm > .username:focus {
+    outline: 3px solid #1b8de4;
+}
+
+.createUserForm > .pass-label {
+    padding-left: 15%;
+    font-size: 20px;
+    font-weight: 475;
+}
+.createUserForm > .pass {
+    margin-top: 5px;
+    margin-left: 15%;
+    width: 70%;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+.createUserForm > .pass:focus {
+    outline: 3px solid #1b8de4;
+}
+.createUserForm > .forget-pass {
+    padding-left: 15%;
+    font-weight: 750;
+    color: black;
+    cursor: pointer;
+}
+.createUserForm > .btn-create-user {
+    margin-top: 30px;
+    width: 70%;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 15%;
+    color: white;
+    font-weight: 550;
+    border-radius: 10px;
+    background-color: #7c9afb;
+    border: 3px solid #5179ff;
+    cursor: pointer;
+    box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+    -webkit-box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+    -moz-box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+}
+.createUserForm > .btn-create-user:active {
+    background-color: #5179ff;
+}
+.empty-username {
+    color: red;
+    position: absolute;
+    font-weight: 750;
+    margin-left: 5%;
+    font-size: 15px;
+    margin-top: -1.1%;
+}
+.empty-password {
+    margin-left: 15%;
+    color: red;
+    position: absolute;
+    font-weight: 750;
+    margin-left: 5%;
+    font-size: 15px;
+    margin-top: -1%;
+}

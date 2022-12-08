@@ -1,0 +1,103 @@
+.loginForm > .app-name {
+    font-size: 45px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 35px;
+}
+.loginForm > .username-label {
+    padding-left: 15%;
+    font-size: 20px;
+    font-weight: 475;
+}
+.loginForm > .username {
+    margin-top: 5px;
+    margin-left: 15%;
+    width: 70%;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.loginForm > .username:focus {
+    outline: 3px solid #1b8de4;
+}
+
+.loginForm > .user-pass-incorrect {
+    position: absolute;
+    color: red;
+    padding-left: 5%;
+    font-weight: 750;
+    font-size: 15px;
+    margin-top: -17px;
+}
+
+.loginForm > .pass-label {
+    padding-left: 15%;
+    font-size: 20px;
+    font-weight: 475;
+}
+.loginForm > .pass {
+    margin-top: 5px;
+    margin-left: 15%;
+    width: 70%;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    margin-bottom: 7px;
+}
+.loginForm > .pass:focus {
+    outline: 3px solid #1b8de4;
+}
+.loginForm > .forget-pass {
+    padding-left: 15%;
+    font-weight: 750;
+    color: black;
+    cursor: pointer;
+}
+.loginForm > .btn-login {
+    margin-top: 30px;
+    width: 70%;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 15%;
+    color: white;
+    font-weight: 550;
+    border-radius: 10px;
+    background-color: #7c9afb;
+    border: 3px solid #5179ff;
+    cursor: pointer;
+    box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+    -webkit-box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+    -moz-box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+}
+.loginForm > .btn-login:active {
+    background-color: #5179ff;
+}
+
+.loginForm > .btn-create {
+    margin-top: 15px;
+    width: 70%;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 15%;
+    color: white;
+    font-weight: 550;
+    border-radius: 10px;
+    background-color: #7c9afb;
+    border: 3px solid #5179ff;
+    cursor: pointer;
+    box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+    -webkit-box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+    -moz-box-shadow: 10px 10px 15px -9px rgba(0, 0, 0, 0.83);
+}
+.loginForm > .btn-create:active {
+    background-color: #5179ff;
+}

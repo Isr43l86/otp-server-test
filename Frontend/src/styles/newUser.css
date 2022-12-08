@@ -1,0 +1,35 @@
+#mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-image: url("../assets/bg_bggenerator_com.png");
+    height: 100%;
+    width: 100%;
+}
+.login-background {
+    position: absolute;
+    height: 75%;
+    width: 70%;
+    background-color: white;
+    opacity: 0.4;
+    border-radius: 10px;
+}
+.login-container {
+    height: 75%;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    z-index: 1;
+    padding: 20px;
+}
+.login-container > img {
+    height: 100%;
+    width: 50%;
+    border-radius: 10px;
+}
+.login-container > .form-container {
+    height: 100%;
+    width: 50%;
+}
