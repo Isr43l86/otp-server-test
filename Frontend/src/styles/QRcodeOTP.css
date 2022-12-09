@@ -1,0 +1,21 @@
+.otpValueQrContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.otpQrBorder {
+    margin-top: 30px;
+    height: 300px;
+    width: 300px;
+    border: 4px solid #1b8de4;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.otpQrBorder > img {
+    height: 290px;
+}

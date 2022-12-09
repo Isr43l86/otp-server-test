@@ -3,7 +3,7 @@ import "../styles/plainTextOTP.css";
 
 export default function PlainTextOTP({ otpValue }) {
     return (
-        <div className="otpValueContainer">
+        <div className="otpValuePlainTextContainer">
             <p className="otpText">{otpValue}</p>
         </div>
     );
