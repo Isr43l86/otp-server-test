@@ -31,11 +31,11 @@ export default function Enable2FA() {
             setCurrentUser(currentUser);
             console.log(currentUser);
             let userString = JSON.stringify(currentUser);
-            let url = "http://localhost:3000/AppSafe/enable2FA/".concat(
-                ";http://localhost:3000/AppSafe/user/generateJWT",
-                ";http://localhost:3000/AppSafe/generateJWT",
-                ";http://localhost:3000/AppSafe/sendOTP",
-                ";http://localhost:3000/AppSafe/getAppInfo;",
+            let url = "http://172.29.32.158:3000/AppSafe/enable2FA/".concat(
+                ";http://172.29.32.158:3000/AppSafe/user/generateJWT",
+                ";http://172.29.32.158:3000/AppSafe/generateJWT",
+                ";http://172.29.32.158:3000/AppSafe/sendOTP",
+                ";http://172.29.32.158:3000/AppSafe/getAppInfo;",
                 userString
             );
             generateQrCode(url);

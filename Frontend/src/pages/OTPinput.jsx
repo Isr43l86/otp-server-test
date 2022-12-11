@@ -1,14 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { userUserContext } from "../context/userContext";
+import { sendOTPgeneratedRequest } from "../api/otp";
 import PlainTextOTP from "../components/PlainTextOTP.jsx";
 import QRcodeOTP from "../components/QRcodeOTP.jsx";
+import { useNavigate } from "react-router-dom";
+import io from "socket.io-client";
 import "../styles/OTPinput.css";
 
-export default function OTPinput() {
-    const { currentUser, setCurrentUser } = userUserContext();
+const socket = io("http://localhost:4000");
 
-    const otpValue =
-        Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000;
+export default function OTPinput() {
+    const navigate = useNavigate();
+
+    const { currentUser, setCurrentUser } = userUserContext();
+    const [otp, setOTP] = useState();
+    const [access, setAccess] = useState(false);
+
+    console.log(socket.id);
+
+    const geneateAndSendOTPgenerated = async () => {
+        const otpValue =
+            Math.floor(Math.random() * (1000000 - 100000 + 1)) + 100000;
+
+        setOTP(otpValue);
+
+        const otpInfo = {
+            userId: currentUser.currentUser._id,
+            username: currentUser.currentUser.username,
+            otpValue: otpValue,
+            socketId: socket.id,
+        };
+
+        try {
+            const saveOTPresponse = await sendOTPgeneratedRequest(otpInfo);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
+        geneateAndSendOTPgenerated();
+    }, []);
+
+    try {
+        socket.on("access", (data) => {
+            console.log(data);
+            if (data === "true") {
+                navigate("/home");
+            }
+        });
+    } catch (error) {
+        console.log(error);
+    }
 
     return (
         <div className="popup">
@@ -19,9 +62,9 @@ export default function OTPinput() {
                 </p>
                 {currentUser.currentUser.twoFactorAuthentication
                     .deliveryMethod === "qr_code" ? (
-                    <QRcodeOTP otpValue={otpValue} />
+                    <QRcodeOTP otpValue={otp} />
                 ) : (
-                    <PlainTextOTP otpValue={otpValue} />
+                    <PlainTextOTP otpValue={otp} />
                 )}
             </div>
         </div>
