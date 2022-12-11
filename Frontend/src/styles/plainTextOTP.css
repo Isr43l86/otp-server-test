@@ -1,0 +1,13 @@
+.otpValuePlainTextContainer {
+    margin-top: 25px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    border: 4px solid #1b8de4;
+}
+.otpValuePlainTextContainer > .otpText {
+    padding-left: 43px;
+    letter-spacing: 25px;
+    text-align: center;
+    font-size: 75px;
+}

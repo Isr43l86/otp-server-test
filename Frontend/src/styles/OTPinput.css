@@ -16,3 +16,13 @@
     background-color: white;
     border-radius: 10px;
 }
+
+.otpContainer > h1 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+.otpContainer > p {
+    font-size: 20px;
+}

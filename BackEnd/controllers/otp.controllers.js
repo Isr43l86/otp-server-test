@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import OTP from "../models/OTP.js";
-import OTPupdate from "../models/OTP.js";
 
 export const controller = {
     generateJWT: function (req, res) {
@@ -30,59 +29,49 @@ export const controller = {
         );
     },
     sendOTP: function (req, res) {
-        jwt.verify(req.token, "secretkey", (err, authData) => {
-            if (err) {
-                return res
-                    .status(403)
-                    .send({ message: "Acceso no autorizado" });
-            } else {
-                OTP.findOneAndUpdate(
-                    {
-                        userId: req.body.userId,
-                        username: req.body.username,
-                    },
-                    {
-                        userId: req.body.userId,
-                        username: req.body.username,
-                        otpValue: req.body.otpValue,
-                    },
-                    (err, otpUpdated) => {
-                        if (err)
+        OTP.findOneAndUpdate(
+            {
+                userId: req.body.userId,
+                username: req.body.username,
+            },
+            {
+                userId: req.body.userId,
+                username: req.body.username,
+                otpValue: req.body.otpValue,
+                socketId: req.body.socketId,
+            },
+            (err, otpUpdated) => {
+                if (err)
+                    return res.status(500).send({
+                        message: "Error al recuperar los registros OTPs",
+                    });
+                if (!otpUpdated) {
+                    let createOTP = new OTP();
+                    createOTP.userId = req.body.userId;
+                    createOTP.username = req.body.username;
+                    createOTP.otpValue = req.body.otpValue;
+                    createOTP.socketId = req.body.socketId;
+                    createOTP.save((err, otpStored) => {
+                        if (err) {
                             return res.status(500).send({
-                                message:
-                                    "Error al recuperar los registros OTPs",
-                            });
-                        if (!otpUpdated) {
-                            let createOTP = new OTP();
-                            createOTP.userId = req.body.userId;
-                            createOTP.username = req.body.username;
-                            createOTP.otpValue = req.body.otpValue;
-                            createOTP.save((err, otpStored) => {
-                                if (err) {
-                                    return res.status(500).send({
-                                        message:
-                                            "Error al crear el registro de OTP",
-                                    });
-                                }
-                                if (!otpStored) {
-                                    return res.status(500).send({
-                                        message: "No se ha guardado el OTP",
-                                    });
-                                }
-                                if (otpStored) {
-                                    return res
-                                        .status(201)
-                                        .send({ otp: otpStored });
-                                }
+                                message: "Error al crear el registro de OTP",
                             });
                         }
-                        if (otpUpdated) {
-                            return res.status(201).send({ otp: otpUpdated });
+                        if (!otpStored) {
+                            return res.status(500).send({
+                                message: "No se ha guardado el OTP",
+                            });
                         }
-                    }
-                );
+                        if (otpStored) {
+                            return res.status(201).send({ otp: otpStored });
+                        }
+                    });
+                }
+                if (otpUpdated) {
+                    return res.status(201).send({ otp: otpUpdated });
+                }
             }
-        });
+        );
     },
 
     verifToken: function (req, res, next) {
@@ -94,5 +83,22 @@ export const controller = {
         } else {
             res.status(403).send({ message: "Acceso no autorizado" });
         }
+    },
+
+    getOTPinfo: function (req, res, next) {
+        OTP.findOne(
+            { userId: req.query.userId, username: req.query.username },
+            (err, otp) => {
+                if (err)
+                    return res
+                        .status(500)
+                        .send({ message: "Error al recuperar el OTP" });
+                if (!otp)
+                    return res
+                        .status(404)
+                        .send({ message: "El OTP no existe" });
+                return res.status(200).send({ otp });
+            }
+        );
     },
 };
