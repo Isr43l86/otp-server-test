@@ -8,6 +8,7 @@ import "../styles/enable2FAform.css";
 import QRPopUp from "./QRPopUp";
 import { userUserContext } from "../context/userContext";
 import { useNavigate } from "react-router-dom";
+import { activate2FA } from "../api/user";
 
 export default function Enable2FA() {
     const navigate = useNavigate();
@@ -23,22 +24,32 @@ export default function Enable2FA() {
 
     const [showPopUpEnroll, setShowPopUpEnroll] = useState(false);
 
-    const handleSaveChanges = (event) => {
+    const handleSaveChanges = async (event) => {
         if (enable2FA) {
             setShowPopUpEnroll(true);
             currentUser.currentUser.twoFactorAuthentication.deliveryMethod =
                 deliveryMethod;
             setCurrentUser(currentUser);
-            console.log(currentUser);
-            let userString = JSON.stringify(currentUser);
-            let url = "http://172.29.32.158:3000/AppSafe/enable2FA/".concat(
-                ";http://172.29.32.158:3000/AppSafe/user/generateJWT",
-                ";http://172.29.32.158:3000/AppSafe/generateJWT",
-                ";http://172.29.32.158:3000/AppSafe/sendOTP",
-                ";http://172.29.32.158:3000/AppSafe/getAppInfo;",
-                userString
-            );
-            generateQrCode(url);
+            try {
+                const res = await activate2FA(
+                    currentUser.currentUser._id,
+                    deliveryMethod
+                );
+                if (res.status === 201) {
+                    console.log(currentUser);
+                    let userString = JSON.stringify(currentUser);
+                    let url =
+                        "http://192.168.100.14:3000/AppSafe/generateJWT".concat(
+                            ";http://192.168.100.14:3000/AppSafe/sendOTP",
+                            ";http://192.168.100.14:3000/AppSafe/getAppInfo;",
+                            userString
+                        );
+
+                    generateQrCode(url);
+                }
+            } catch (error) {
+                console.log(error);
+            }
         }
     };
 

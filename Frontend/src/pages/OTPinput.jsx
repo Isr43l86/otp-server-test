@@ -40,6 +40,7 @@ export default function OTPinput() {
 
     useEffect(() => {
         geneateAndSendOTPgenerated();
+        console.log("primer generado del otp ", otp);
     }, []);
 
     try {

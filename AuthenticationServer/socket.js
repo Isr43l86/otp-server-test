@@ -7,9 +7,10 @@ export default (io) => {
 
         socket.on("sendOTPfromMobile", function (otpInfo) {
             const getSocketInfo = async () => {
+                console.log("OTP enviado");
                 await axios({
                     method: "get",
-                    url: "http://localhost:3000/AppSafe/getOTPinfo",
+                    url: "http://192.168.100.14:3000/AppSafe/getOTPinfo",
                     params: {
                         userId: otpInfo.id,
                         username: otpInfo.username,
