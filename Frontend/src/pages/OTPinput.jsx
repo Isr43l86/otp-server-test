@@ -63,7 +63,11 @@ export default function OTPinput() {
                 </p>
                 {currentUser.currentUser.twoFactorAuthentication
                     .deliveryMethod === "qr_code" ? (
-                    <QRcodeOTP otpValue={otp} />
+                    <QRcodeOTP
+                        otpValue={otp}
+                        userId={currentUser.currentUser._id}
+                        username={currentUser.currentUser.username}
+                    />
                 ) : (
                     <PlainTextOTP otpValue={otp} />
                 )}

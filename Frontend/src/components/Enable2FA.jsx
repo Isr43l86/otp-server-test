@@ -39,9 +39,9 @@ export default function Enable2FA() {
                     console.log(currentUser);
                     let userString = JSON.stringify(currentUser);
                     let url =
-                        "http://192.168.100.14:3000/AppSafe/generateJWT".concat(
-                            ";http://192.168.100.14:3000/AppSafe/sendOTP",
-                            ";http://192.168.100.14:3000/AppSafe/getAppInfo;",
+                        "http://192.168.1.41:3000/AppSafe/generateJWT".concat(
+                            ";http://192.168.1.41:3000/AppSafe/sendOTP",
+                            ";http://192.168.1.41:3000/AppSafe/getAppInfo;",
                             userString
                         );
 

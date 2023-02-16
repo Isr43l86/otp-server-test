@@ -8,9 +8,9 @@ export default (io) => {
         socket.on("sendOTPfromMobile", function (otpInfo) {
             const getSocketInfo = async () => {
                 console.log("OTP enviado ", otpInfo);
-                /*await axios({
+                await axios({
                     method: "get",
-                    url: "http://192.168.100.14:3000/AppSafe/getOTPinfo",
+                    url: "http://192.168.1.41:3000/AppSafe/getOTPinfo",
                     params: {
                         userId: otpInfo.id,
                         username: otpInfo.username,
@@ -26,7 +26,7 @@ export default (io) => {
                     } else {
                         console.log("access denied");
                     }
-                });*/
+                });
             };
             getSocketInfo();
         });

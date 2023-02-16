@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import QRCode from "qrcode";
 import "../styles/QRcodeOTP.css";
 
-export default function QRcodeOTP({ otpValue }) {
+export default function QRcodeOTP({ otpValue, userId, username }) {
     const [qrcode, setQrcode] = useState("");
     console.log("este es el valor del otp  " + otpValue);
 
@@ -17,7 +17,11 @@ export default function QRcodeOTP({ otpValue }) {
     useEffect(() => {
         let url = "http://192.168.100.14:3000/AppSafe/generateJWT".concat(
             ";",
-            otpValue
+            otpValue,
+            ";",
+            userId,
+            ";",
+            username
         );
         generateQrCode(url);
     }, [otpValue]);
